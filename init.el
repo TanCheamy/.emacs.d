@@ -85,6 +85,9 @@
 ;; ------ 开启 flycheck 检查 ------
 (require 'init-flycheck)
 
+;; ------ 开启 flyspell 检查 ------
+(require 'init-flyspell)
+
 ;; ------ helm ------
 (require 'init-helm)
 
