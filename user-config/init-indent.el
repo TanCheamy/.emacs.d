@@ -8,7 +8,7 @@
 
 (setq-default indent-tabs-mode nil)
 (electric-indent-mode -1)
-(setq-default tab-width nil)
+(setq-default tab-width 2)
 (setq-default web-mode-code-indent-offset 2)
 (setq-default web-mode-css-indent-offset 2)
 (setq-default web-mode-markup-indent-offset 2)

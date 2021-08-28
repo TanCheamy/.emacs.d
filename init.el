@@ -5,8 +5,8 @@
 ;;; Code:
 
 ;; ------ 官方源 ------
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;; 			 ("melpa" . "https://melpa.org/packages/")))
 
 ;; ------ Emacs China 源 ------
 ;;(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
@@ -17,13 +17,13 @@
 ;;                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")))
 
 ;; ------ 清华源 ------
-;;(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;;                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("org"   . "https://elpa.nongnu.org/nongnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
-
+(setq package-check-signature nil)
 (package-initialize)
 (package-refresh-contents)
-
 
 (require 'use-package)
 
@@ -32,7 +32,7 @@
 (setq byte-compile-warnings '(cl-functions))
 
 ;; ------ 解决 Emacs GC 占用内存高的问题 ------
-(require 'init-gc)
+;; (require 'init-gc)
 
 ;; ------ 设置默认屏幕宽高 ------
 (require 'init-size)
@@ -50,7 +50,7 @@
 (require 'init-indent)
 
 ;; ------ 默认配置 ------
-;; (require 'init-default)
+; (require 'init-default)
 
 ;; ------ 最近打开的文件 ------
 (require 'init-recentf)
@@ -95,10 +95,10 @@
 (require 'init-jump)
 
 ;; ------ emms ------
-(require 'init-emms)
+;; (require 'init-emms)
 
 ;; ------ init git ------
-(require 'init-git)
+;; (require 'init-git)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

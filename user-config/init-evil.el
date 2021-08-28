@@ -18,7 +18,7 @@
 					evil-insert-state-cursor '("#f72e96" box)
 					evil-replace-state-cursor '("#f72e96" box)
 					evil-operator-state-cursor '("#f72e96" box))
-		(evil-mode 0)))
+		(evil-mode t)))
 
 (global-set-key (kbd "<f9>") 'evil-mode)
 
