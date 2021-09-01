@@ -26,6 +26,9 @@
 (setq-default pathname-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 
+(when (eq system-type 'windows-nt)
+	;; 解决粘贴中文出现乱码的问题
+	(set-selection-coding-system 'utf-16le-dos))
 
 (provide 'init-coding)
 

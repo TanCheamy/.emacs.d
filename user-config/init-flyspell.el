@@ -26,4 +26,4 @@
 
 (provide 'init-flyspell)
 
-;;; init-spellcheck.el ends here
+;;; init-init-flyspell.el ends here

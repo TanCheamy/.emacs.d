@@ -58,9 +58,6 @@
 ;; ------ 修改字体 ------
 (require 'init-font)
 
-;; ------ 绑定全局快捷键 ------
-(require 'init-key-binding)
-
 ;; ------ 设置编码 ------
 (require 'init-coding)
 
@@ -69,6 +66,9 @@
 
 ;; ------ 开启 evil 模式 + 设置鼠标样式 ------
 (require 'init-evil)
+
+;; ------ 撤销与重做 ------
+(require 'init-undo-tree)
 
 ;; ------ 开启插件 ------
 (require 'init-plugins)
@@ -103,6 +103,9 @@
 ;; ------ init git ------
 ;; (require 'init-git)
 
+;; ------ 绑定全局快捷键 ------
+(require 'init-key-binding)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -112,40 +115,34 @@
 	 ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(ansi-term-color-vector
 	 [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
- '(compilation-message-face (quote default))
+ '(compilation-message-face 'default)
  '(cua-global-mark-cursor-color "#7ec98f")
  '(cua-normal-cursor-color "#868686")
  '(cua-overwrite-cursor-color "#e5c06d")
  '(cua-read-only-cursor-color "#8ac6f2")
  '(custom-safe-themes
-	 (quote
-		("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "f9aede508e587fe21bcfc0a85e1ec7d27312d9587e686a6f5afdbb0d220eab50" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" default)))
+	 '("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "f9aede508e587fe21bcfc0a85e1ec7d27312d9587e686a6f5afdbb0d220eab50" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" default))
  '(fci-rule-character-color "#452E2E")
- '(highlight-changes-colors (quote ("#e5786d" "#834c98")))
+ '(highlight-changes-colors '("#e5786d" "#834c98"))
  '(highlight-symbol-colors
-	 (quote
-		("#4f0045133492" "#3df04de23cec" "#56c745764525" "#3ce333f13c9b" "#3f154d9b55f1" "#4f0045133492" "#456145244da4")))
+	 '("#4f0045133492" "#3df04de23cec" "#56c745764525" "#3ce333f13c9b" "#3f154d9b55f1" "#4f0045133492" "#456145244da4"))
  '(highlight-symbol-foreground-color "#939393")
  '(highlight-tail-colors
-	 (quote
-		(("#2a2a2a" . 0)
+	 '(("#2a2a2a" . 0)
 		 ("#39454b" . 20)
 		 ("#384538" . 30)
 		 ("#3e3e45" . 50)
 		 ("#463e31" . 60)
 		 ("#463e31" . 70)
 		 ("#463731" . 85)
-		 ("#2a2a2a" . 100))))
+		 ("#2a2a2a" . 100)))
  '(hl-bg-colors
-	 (quote
-		("#463e31" "#463e31" "#4c3e3e" "#463731" "#383037" "#3e3e45" "#384538" "#39454b")))
+	 '("#463e31" "#463e31" "#4c3e3e" "#463731" "#383037" "#3e3e45" "#384538" "#39454b"))
  '(hl-fg-colors
-	 (quote
-		("#262526" "#262526" "#262526" "#262526" "#262526" "#262526" "#262526" "#262526")))
- '(hl-paren-colors (quote ("#7ec98f" "#e5c06d" "#a4b5e6" "#834c98" "#8ac6f2")))
+	 '("#262526" "#262526" "#262526" "#262526" "#262526" "#262526" "#262526" "#262526"))
+ '(hl-paren-colors '("#7ec98f" "#e5c06d" "#a4b5e6" "#834c98" "#8ac6f2"))
  '(hl-todo-keyword-faces
-	 (quote
-		(("TODO" . "#dc752f")
+	 '(("TODO" . "#dc752f")
 		 ("NEXT" . "#dc752f")
 		 ("THEM" . "#2d9574")
 		 ("PROG" . "#4f97d7")
@@ -159,31 +156,28 @@
 		 ("TEMP" . "#b1951d")
 		 ("FIXME" . "#dc752f")
 		 ("XXX+" . "#dc752f")
-		 ("\\?\\?\\?+" . "#dc752f"))))
+		 ("\\?\\?\\?+" . "#dc752f")))
  '(jdee-db-active-breakpoint-face-colors (cons "#464258" "#C5A3FF"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#464258" "#C2FFDF"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#464258" "#656565"))
  '(lsp-ui-doc-border "#939393")
  '(nrepl-message-colors
-	 (quote
-		("#ffb4ac" "#ddaa6f" "#e5c06d" "#39454b" "#dce9f1" "#3e3e45" "#7ec98f" "#e5786d" "#834c98")))
+	 '("#ffb4ac" "#ddaa6f" "#e5c06d" "#39454b" "#dce9f1" "#3e3e45" "#7ec98f" "#e5786d" "#834c98"))
  '(objed-cursor-color "#CC6666")
  '(package-selected-packages
-	 (quote
-		(flymake-eslint panda-theme vscdark-theme nlinum-relative nlinum git-gutter-fringe git-gutter avy flycheck swiper cyberpunk-2019-theme cyberpunk-theme moe-theme afternoon-theme gruvbox-theme vimrc-mode go-mode json-mode rust-mode markdown-mode typescript-mode sass-mode scss-mode ample-theme helm-themes ace-jump-mode vlc emms ag iedit mew w3m peacock-theme doom-themes emmet-mode treemacs-icons-dired treemacs-projectile treemacs-evil autopair dashboard soft-stone-theme material-theme birds-of-paradise-plus-theme ubuntu-theme zenburn-theme solarized-theme spacemacs-theme counsel rjsx-mode js2-mode auto-complete helm-projectile tide popwin company web-mode yasnippet magit ivy treemacs neotree evil monokai-theme dracula-theme helm disable-mouse)))
- '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
+	 '(undo-tree undo-fu flymake-eslint panda-theme vscdark-theme nlinum-relative nlinum git-gutter-fringe git-gutter avy flycheck swiper cyberpunk-2019-theme cyberpunk-theme moe-theme afternoon-theme gruvbox-theme vimrc-mode go-mode json-mode rust-mode markdown-mode typescript-mode sass-mode scss-mode ample-theme helm-themes ace-jump-mode vlc emms ag iedit mew w3m peacock-theme doom-themes emmet-mode treemacs-icons-dired treemacs-projectile treemacs-evil autopair dashboard soft-stone-theme material-theme birds-of-paradise-plus-theme ubuntu-theme zenburn-theme solarized-theme spacemacs-theme counsel rjsx-mode js2-mode auto-complete helm-projectile tide popwin company web-mode yasnippet magit ivy treemacs neotree evil monokai-theme dracula-theme helm disable-mouse))
+ '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(pos-tip-background-color "#2a2a2a")
  '(pos-tip-foreground-color "#939393")
  '(rustic-ansi-faces
 	 ["#5a5475" "#CC6666" "#C2FFDF" "#FFEA00" "#55b3cc" "#FFB8D1" "#96CBFE" "#F8F8F0"])
- '(send-mail-function (quote mailclient-send-it))
+ '(send-mail-function 'mailclient-send-it)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#8ac6f2" "#2a2a2a" 0.2))
  '(term-default-bg-color "#262526")
  '(term-default-fg-color "#868686")
  '(vc-annotate-background-mode nil)
  '(weechat-color-list
-	 (quote
-		(unspecified "#262526" "#2a2a2a" "#4c3e3e" "#ffb4ac" "#39454b" "#8ac6f2" "#463e31" "#e5c06d" "#3e3e45" "#a4b5e6" "#463731" "#e5786d" "#384538" "#7ec98f" "#868686" "#6e6e6e")))
+	 '(unspecified "#262526" "#2a2a2a" "#4c3e3e" "#ffb4ac" "#39454b" "#8ac6f2" "#463e31" "#e5c06d" "#3e3e45" "#a4b5e6" "#463731" "#e5786d" "#384538" "#7ec98f" "#868686" "#6e6e6e"))
  '(xterm-color-names
 	 ["#2a2a2a" "#ffb4ac" "#8ac6f2" "#e5c06d" "#a4b5e6" "#e5786d" "#7ec98f" "#e0e0e0"])
  '(xterm-color-names-bright
