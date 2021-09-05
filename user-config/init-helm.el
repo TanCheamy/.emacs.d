@@ -16,7 +16,9 @@
 	:config
 	(helm-mode 1)
 	(setq helm-autoresize-min-height 10)
-	(setq helm-autoresize-max-height 10))
+	(setq helm-autoresize-max-height 10)
+	(define-key evil-insert-state-map (kbd "C-y") 'helm-show-kill-ring)
+	(define-key evil-normal-state-map (kbd "C-y") 'helm-show-kill-ring))
 
 ;; (use-package helm-config)
 (use-package helm-projectile
@@ -24,18 +26,18 @@
 	:init
 	(helm-projectile-on))
 
-(use-package ivy
-	:defer t
-	:ensure t
-	:config
-	(ivy-mode 1)
-	(setq ivy-use-virtual-buffers t)
-	(setq enable-recursive-minibuffers t)
-	(setq search-default-mode #'char-fold-to-regexp)
-	(setq ivy-count-format "")
-	(setq ivy-virtual-abbreviate 'fullpath)
-	(setq projectile-completion-system 'ivy)
-	(setq ivy-use-selectable-prompt t))
+;; (use-package ivy
+;; 	:defer t
+;; 	:ensure t
+;; 	:config
+;; 	(ivy-mode 1)
+;; 	(setq ivy-use-virtual-buffers t)
+;; 	(setq enable-recursive-minibuffers t)
+;; 	(setq search-default-mode #'char-fold-to-regexp)
+;; 	(setq ivy-count-format "")
+;; 	(setq ivy-virtual-abbreviate 'fullpath)
+;; 	(setq projectile-completion-system 'ivy)
+;; 	(setq ivy-use-selectable-prompt t))
 
 
 ;; ------ 旧的配置备份 ------

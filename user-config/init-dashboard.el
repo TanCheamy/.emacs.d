@@ -21,8 +21,8 @@
 	(setq dashboard-set-navigator t)
   (dashboard-setup-startup-hook))
 
-(setq initial-buffer-choice
-			(lambda () (get-buffer "*dashbaord*")))
+;;(setq initial-buffer-choice
+;;			(lambda () (get-buffer "*dashbaord*")))
 
 ;; Configuration
 ;; (setq dashboard-center-content t)

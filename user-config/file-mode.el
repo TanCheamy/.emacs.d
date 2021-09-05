@@ -6,7 +6,9 @@
 
 ;; ------ 设置文件模式 ------
 
+;; org-mode
 (use-package org-contrib)
+
 (use-package web-mode)
 (use-package css-mode)
 (use-package sass-mode)
